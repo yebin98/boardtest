@@ -1,14 +1,14 @@
 package org.iyb.service;
 
 import java.util.ArrayList;
-
 import org.iyb.domain.BoardDTO;
+import org.iyb.domain.Criteria;
 
 public interface BoardService { 
 	//게시판 글쓰기
 	public void write(BoardDTO board);
 	//게시판 목록리스트
-	public ArrayList<BoardDTO> list();
+	public ArrayList<BoardDTO> list(Criteria cri);
 	//게시판 목록리스트에서 제목을 클릭했을 때 내용이 나오는 상세페이지
 	public BoardDTO detail(BoardDTO board);
 	//게시판 수정페이지

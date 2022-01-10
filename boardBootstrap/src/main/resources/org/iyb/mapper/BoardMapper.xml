@@ -11,6 +11,29 @@
   	</insert>
   	<select id="list" resultType="org.iyb.domain.BoardDTO">
   		select*from board
+  		<choose><!-- mybatis의 switch문이다. -->
+	  	 	<when test="search == null">
+		      where 1=1
+		    </when>
+		    <when test="search == 't'.toString()">
+		      where title like concat('%',#{keyword},'%');
+		    </when>
+		   	<when test="search == 'c'.toString()">
+		      where content like concat('%',#{keyword},'%');
+		    </when>
+		    <when test="search == 'w'.toString()">
+		      where writer like concat('%',#{keyword},'%');
+		    </when>
+		    <when test="search == 'tc'.toString()">
+		      where title like concat('%',#{keyword},'%') 
+		      or content like concat('%',#{keyword},'%');
+		    </when>
+		    <otherwise>
+		      where title like concat('%',#{keyword},'%') 
+		      or content like concat('%',#{keyword},'%') 
+		      or writer like concat('%',#{keyword},'%');
+		    </otherwise>
+		</choose>
   	</select>
   	<select id="detail" resultType="org.iyb.domain.BoardDTO">
   		select*from board where bno=#{bno}

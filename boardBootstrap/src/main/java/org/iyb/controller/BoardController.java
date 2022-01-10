@@ -1,6 +1,7 @@
 package org.iyb.controller;
 
 import org.iyb.domain.BoardDTO;
+import org.iyb.domain.Criteria;
 import org.iyb.service.BoardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -28,9 +29,9 @@ public class BoardController {
 	
 	//게시판 목록 리스트
 	@GetMapping("list")
-	public void list(Model model) {
-		service.list();
-		model.addAttribute("list", service.list());
+	public void list(Criteria cri, Model model) {
+		service.list(cri);
+		model.addAttribute("list", service.list(cri));
 	}
 	
 	//게시판 목록 리스트에서 제목을 클릭하면
