@@ -2,6 +2,7 @@ package org.iyb.controller;
 
 import org.iyb.domain.BoardDTO;
 import org.iyb.domain.Criteria;
+import org.iyb.domain.PageDTO;
 import org.iyb.service.BoardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -30,8 +31,9 @@ public class BoardController {
 	//게시판 목록 리스트
 	@GetMapping("list")
 	public void list(Criteria cri, Model model) {
-		service.list(cri);
 		model.addAttribute("list", service.list(cri));
+		int total = service.getTotalCount(cri);
+		model.addAttribute("pageMaker", new PageDTO(cri,total));//매개변수가 2개 이므로 select된 결과 도출
 	}
 	
 	//게시판 목록 리스트에서 제목을 클릭하면
