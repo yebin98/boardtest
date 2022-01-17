@@ -23,6 +23,9 @@
 	
 	<context:component-scan base-package="org.iyb.controller" />
 	
+	<beans:bean id="multipartResover" class="org.springframework.web.multipart.support.StandardServletMultipartResolver">
+	</beans:bean>
+	
 	
 	
 </beans:beans>

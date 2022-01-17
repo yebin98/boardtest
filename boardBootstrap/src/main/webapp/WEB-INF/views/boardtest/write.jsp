@@ -3,9 +3,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-<link rel = "stylesheet" type="text/css" href="../resources/css/bootstrap.css">
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<link rel = "stylesheet" type="text/css" href="../resources/css/bootstrap.css">
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
 	<div class="p-3 bg-secondary text-white text-center">글쓰기</div>
@@ -40,5 +41,14 @@
 		   <input type="submit" value="작성" class="btn btn-outline-secondary">
 		</div>
 	</form>
+	<div class="text-end">
+		<a href="/b/boardtest/list" class="btn btn-outline-secondary">목록으로</a>
+	</div>
+	
+	<%-- <% 
+	 document.getElementById("write").onclick = function() {
+        alert("저장 완료");
+    };
+	%> --%>
 </body>
 </html>

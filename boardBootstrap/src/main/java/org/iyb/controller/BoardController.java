@@ -33,7 +33,7 @@ public class BoardController {
 	public void list(Criteria cri, Model model) {
 		model.addAttribute("list", service.list(cri));
 		int total = service.getTotalCount(cri);
-		model.addAttribute("pageMaker", new PageDTO(cri,total));//매개변수가 2개 이므로 select된 결과 도출
+		model.addAttribute("pageMaker", new PageDTO(cri,total));
 	}
 	
 	//게시판 목록 리스트에서 제목을 클릭하면

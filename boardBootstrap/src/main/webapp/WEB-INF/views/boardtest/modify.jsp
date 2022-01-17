@@ -3,9 +3,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-<link rel = "stylesheet" type="text/css" href="../resources/css/bootstrap.css">
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<link rel = "stylesheet" type="text/css" href="../resources/css/bootstrap.css">
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script type="text/javascript" src="../resources/js/modify.js"></script>
 </head>
 <body>
 	<div class=" mb-2 p-3 bg-secondary text-white text-center">수정내용 입력</div>
@@ -30,7 +32,7 @@
 		</div>
 	    <div class="text-center">
 	    	<a href="/b/boardtest/list" class="btn btn-outline-secondary">목록으로</a>
-		   <input type="submit" value="수정" class="btn btn-outline-secondary">
+		   <input type="submit" value="수정" class="btn btn-outline-secondary" id="modify">
 		</div>
 	</form>
 </body>
