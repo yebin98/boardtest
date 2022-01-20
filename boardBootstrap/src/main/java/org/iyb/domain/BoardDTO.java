@@ -1,5 +1,7 @@
 package org.iyb.domain;
 
+import java.util.ArrayList;
+
 public class BoardDTO{
 	private int bno;
 	private String title;
@@ -7,6 +9,7 @@ public class BoardDTO{
 	private String writer;
 	private String regdate;
 	private int cnt;
+	private ArrayList<AttachFileDTO> attachList;//BoardDTO에 AttachFileDTO를 포함시킴
 	
 	public int getBno() {
 		return bno;
@@ -45,10 +48,16 @@ public class BoardDTO{
 		this.cnt = cnt;
 	}
 
+	public ArrayList<AttachFileDTO> getAttachList() {
+		return attachList;
+	}
+	public void setAttachList(ArrayList<AttachFileDTO> attachList) {
+		this.attachList = attachList;
+	}
 	@Override
 	public String toString() {
 		return "BoardDTO [bno=" + bno + ", title=" + title + ", content=" + content + ", writer=" + writer
-				+ ", regdate=" + regdate + ", cnt=" + cnt + "]";
+				+ ", regdate=" + regdate + ", cnt=" + cnt + ", attachList=" + attachList + "]";
 	}
 	
 }

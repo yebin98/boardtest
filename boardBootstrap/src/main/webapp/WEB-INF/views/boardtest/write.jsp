@@ -7,10 +7,11 @@
 	<title>Insert title here</title>
 	<link rel = "stylesheet" type="text/css" href="../resources/css/bootstrap.css">
 	<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script type="text/javascript" src="../resources/js/uploadAjax.js"></script>
 </head>
 <body>
 	<div class="p-3 bg-secondary text-white text-center">글쓰기</div>
-	<form action="/b/boardtest/write" method="post">
+	<form action="/b/boardtest/write" method="post" role="form">
 		<table class="table">
 	    	<tr>
 	    		<th scope="col" style="width:80px">
@@ -37,10 +38,16 @@
 	            </td>
 	    	</tr>
        	</table>
+     	<div>
+        	<input type="file" name="uploadFile" multiple>
+    	</div>
        	<div class="text-center">
 		   <input type="submit" value="작성" class="btn btn-outline-secondary">
 		</div>
 	</form>
+	<div id="uploadResult">
+   		<ul></ul>
+   	</div>
 	<div class="text-end">
 		<a href="/b/boardtest/list" class="btn btn-outline-secondary">목록으로</a>
 	</div>

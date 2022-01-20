@@ -9,6 +9,13 @@
   		insert into board(title,content,writer)
 		value(#{title},#{content},#{writer})
   	</insert>
+ 	<insert id="insertSelectKey" >
+ 		<selectKey keyProperty="bno" order="BEFORE" resultType="int"><!-- order에는 대문자를 작성해야 함 -->
+ 			select max(bno)+1 bno from board
+ 		</selectKey>
+ 		insert into board(bno,title,content,writer)
+		value(#{bno},#{title},#{content},#{writer})
+  	</insert>
   	<select id="list" resultType="org.iyb.domain.BoardDTO">
   		select*from(
 				select @rownum:=@rownum+1 as rownum, b.*

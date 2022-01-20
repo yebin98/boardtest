@@ -1,8 +1,11 @@
 package org.iyb.service;
 
 import java.util.ArrayList;
+
+import org.iyb.domain.AttachFileDTO;
 import org.iyb.domain.BoardDTO;
 import org.iyb.domain.Criteria;
+import org.iyb.mapper.AttachMapper;
 import org.iyb.mapper.BoardMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,11 +14,18 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 public class BoardServiceImpl implements BoardService{ 
 	@Autowired
-	private BoardMapper bmapper;//BoardMapper와 연결
+	private BoardMapper bmapper;
+	@Autowired
+	private AttachMapper amapper;
 	
 	//게시판 글쓰기 설계된 것 구현 
 	public void write(BoardDTO board) {
-		bmapper.write(board);//BoardMapper와 연결//호출부
+		bmapper.insertSelectKey(board);
+		board.getAttachList().forEach(attach->{
+			attach.setBno(board.getBno());
+			System.out.println("attach테이블의 bno"+attach.getBno());
+			amapper.insert(attach);
+		});
 	}
 	
 	//게시판 목록리스트 설계된 것 구현
@@ -45,5 +55,10 @@ public class BoardServiceImpl implements BoardService{
 	//게사판 페이징에 쓰일 데이터건수
 	public int getTotalCount(Criteria cri) {
 		return bmapper.getTotalCount(cri);
+	}
+	
+	//게시판 상세페이지에 파일업로드된 이미지 출력하는 것을 구현
+	public ArrayList<AttachFileDTO> fileList(int bno){
+		return amapper.fileList(bno);
 	}
 }

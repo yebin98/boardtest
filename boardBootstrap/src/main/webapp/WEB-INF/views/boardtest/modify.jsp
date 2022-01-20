@@ -8,10 +8,11 @@
 	<link rel = "stylesheet" type="text/css" href="../resources/css/bootstrap.css">
 	<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<script type="text/javascript" src="../resources/js/modify.js"></script>
+	<!-- <script type="text/javascript" src="../resources/js/uploadAjax.js"></script> -->
 </head>
 <body>
 	<div class=" mb-2 p-3 bg-secondary text-white text-center">수정내용 입력</div>
-	<form action="/b/boardtest/modify" method="post">
+	<form action="/b/boardtest/modify" method="post" role="form">
 		<div class="container">
 			<div>
 		        <input type="hidden" value="${detail.bno}" name="bno">
@@ -29,11 +30,17 @@
 			<div>
 				<textarea name="content" class="form-control" id="floatingTextarea2" style="width: 100%; height: 300px">${detail.content}</textarea>
 	    	</div>
+	    	<div>
+	        	<input type="file" name="uploadFile" multiple>
+	    	</div>
 		</div>
 	    <div class="text-center">
 	    	<a href="/b/boardtest/list" class="btn btn-outline-secondary">목록으로</a>
 		   <input type="submit" value="수정" class="btn btn-outline-secondary" id="modify">
 		</div>
 	</form>
+		<div id="uploadResult">
+	 		<ul></ul>
+	 	</div>
 </body>
 </html>

@@ -30,6 +30,9 @@
 	    	<a href="/b/boardtest/modify?bno=${detail.bno}" class="btn btn-outline-secondary">수정</a>
 	    	<a href="/b/boardtest/remove?bno=${detail.bno}" class="btn btn-outline-secondary" id="remove">삭제</a>
 	    </div>
+        <div id="uploadResult">
+   			<ul></ul>
+	   	</div>
 	    <div class="panel-body">
 	    	<h4>댓글</h4>
             <div>
@@ -52,7 +55,7 @@
 		            </div>
 		            <div>
 		                <label>작성자</label>
-		                <input type="text" name="replyer" class="form-control">
+		                <input type="text" name="replyer" id="replyer" class="form-control">
 		            </div>
 		            <div>
 		                <label>내용</label>
